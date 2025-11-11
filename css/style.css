@@ -66,6 +66,18 @@ header {
   background-color: rgba(255, 255, 255, 0.25);
 }
 
+/* Mobile nav toggle (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.18);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
 /* ===================== MAIN ===================== */
 main {
   padding: 40px 20px;
@@ -186,14 +198,23 @@ footer {
 
 /* ===================== MEDIA ===================== */
 @media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+    margin-left: 12px;
+  }
+
   .nav-links {
     flex-direction: column;
-    background: var(--primary-color);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     position: absolute;
     top: 60px;
+    left: 0;
     right: 0;
     width: 100%;
     display: none;
+    padding: 12px 0;
+    gap: 8px;
+    z-index: 200;
   }
 
   .nav-links.show {

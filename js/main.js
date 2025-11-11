@@ -80,6 +80,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- Mobile nav toggle ---
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('show');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close mobile menu when a link is clicked
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName.toLowerCase() === 'a') {
+        navLinks.classList.remove('show');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   // --- Live Clock ---
   if (!document.querySelector(".clock")) {
     const clock = document.createElement("div");
